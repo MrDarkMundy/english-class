@@ -1,22 +1,22 @@
 // ==UserScript==
-// @name         Auto Redirect
+// @name         auto redirect (eng)
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Redirects a specific URL to another URL
-// @author       You
-// @match        https://example.com/*
+// @description  Redirects TED.com to a classic surprise
+// @author       MrMundy
+// @match        https://www.ted.com/*
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
+    console.log("Tampermonkey script loaded on:", window.location.href);
 
-    // Define the source and destination URLs
-    const sourceUrl = "https://www.ted.com/"; // Change this to your source URL
-    const destinationUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Change this to your destination URL
+    const sourceUrl = "https://www.ted.com/";
+    const destinationUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 
-    // Check if the current page matches the source URL
-    if (window.location.href === sourceUrl) {
+    if (window.location.href.startsWith(sourceUrl)) {
+        console.log("Redirecting to:", destinationUrl);
         window.location.replace(destinationUrl);
     }
 })();
